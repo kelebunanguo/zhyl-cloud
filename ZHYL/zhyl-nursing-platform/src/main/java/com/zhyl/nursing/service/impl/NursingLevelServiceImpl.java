@@ -2,8 +2,6 @@ package com.zhyl.nursing.service.impl;
 
 import java.util.Arrays;
 import java.util.List;
-
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zhyl.common.utils.DateUtils;
 import com.zhyl.nursing.vo.NursingLevelVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +9,13 @@ import org.springframework.stereotype.Service;
 import com.zhyl.nursing.mapper.NursingLevelMapper;
 import com.zhyl.nursing.domain.NursingLevel;
 import com.zhyl.nursing.service.INursingLevelService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 /**
  * 护理等级Service业务层处理
- *
- * @author ruoyi
- * @date 2025-12-09
+ * 
+ * @author alexis
+ * @date 2025-06-02
  */
 @Service
 public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, NursingLevel> implements INursingLevelService
@@ -26,7 +25,7 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
 
     /**
      * 查询护理等级
-     *
+     * 
      * @param id 护理等级主键
      * @return 护理等级
      */
@@ -38,7 +37,7 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
 
     /**
      * 查询护理等级列表
-     *
+     * 
      * @param nursingLevel 护理等级
      * @return 护理等级
      */
@@ -50,7 +49,7 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
 
     /**
      * 新增护理等级
-     *
+     * 
      * @param nursingLevel 护理等级
      * @return 结果
      */
@@ -62,7 +61,7 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
 
     /**
      * 修改护理等级
-     *
+     * 
      * @param nursingLevel 护理等级
      * @return 结果
      */
@@ -74,7 +73,7 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
 
     /**
      * 批量删除护理等级
-     *
+     * 
      * @param ids 需要删除的护理等级主键
      * @return 结果
      */
@@ -86,7 +85,7 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
 
     /**
      * 删除护理等级信息
-     *
+     * 
      * @param id 护理等级主键
      * @return 结果
      */

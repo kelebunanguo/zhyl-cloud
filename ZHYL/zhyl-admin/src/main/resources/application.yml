@@ -132,3 +132,11 @@ xss:
   # 匹配链接
   urlPatterns: /system/*,/monitor/*,/tool/*
 
+# 阿里云OSS相关配置
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: zznursing-zyl
+
+dept:
+  nursingId: 201

@@ -1,12 +1,13 @@
 package com.zhyl.nursing.controller;
 
+import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+
 import com.zhyl.common.core.domain.R;
 import com.zhyl.nursing.vo.NursingLevelVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,13 +29,13 @@ import com.zhyl.common.core.page.TableDataInfo;
 
 /**
  * 护理等级Controller
- *
- * @author ruoyi
- * @date 2025-12-05
+ * 
+ * @author alexis
+ * @date 2025-06-02
  */
+@Api("护理等级管理")
 @RestController
 @RequestMapping("/nursing/level")
-@Api(tags = "护理等级相关接口")
 public class NursingLevelController extends BaseController
 {
     @Autowired
@@ -53,6 +54,19 @@ public class NursingLevelController extends BaseController
         return getDataTable(list);
     }
 
+    /**
+     * 导出护理等级列表
+     */
+    @ApiOperation("导出护理等级列表")
+    @PreAuthorize("@ss.hasPermi('nursing:level:export')")
+    @Log(title = "护理等级", businessType = BusinessType.EXPORT)
+    @PostMapping("/export")
+    public void export(@ApiParam("导出的查询条件") HttpServletResponse response, NursingLevel nursingLevel)
+    {
+        List<NursingLevel> list = nursingLevelService.selectNursingLevelList(nursingLevel);
+        ExcelUtil<NursingLevel> util = new ExcelUtil<NursingLevel>(NursingLevel.class);
+        util.exportExcel(response, list, "护理等级数据");
+    }
 
     /**
      * 获取护理等级详细信息
@@ -64,14 +78,15 @@ public class NursingLevelController extends BaseController
     {
         return R.ok(nursingLevelService.selectNursingLevelById(id));
     }
+
     /**
      * 新增护理等级
      */
+    @ApiOperation("新增护理等级")
     @PreAuthorize("@ss.hasPermi('nursing:level:add')")
     @Log(title = "护理等级", businessType = BusinessType.INSERT)
     @PostMapping
-    @ApiOperation("新增护理等级")
-    public AjaxResult add(@ApiParam(value = "护理等级实体", required = true) @RequestBody NursingLevel nursingLevel)
+    public AjaxResult add(@RequestBody @ApiParam("新增的护理等级对象") NursingLevel nursingLevel)
     {
         return toAjax(nursingLevelService.insertNursingLevel(nursingLevel));
     }
@@ -79,11 +94,11 @@ public class NursingLevelController extends BaseController
     /**
      * 修改护理等级
      */
+    @ApiOperation("修改护理等级")
     @PreAuthorize("@ss.hasPermi('nursing:level:edit')")
     @Log(title = "护理等级", businessType = BusinessType.UPDATE)
     @PutMapping
-    @ApiOperation("修改护理等级")
-    public AjaxResult edit(@ApiParam(value = "护理等级实体", required = true)  @RequestBody NursingLevel nursingLevel)
+    public AjaxResult edit(@RequestBody @ApiParam("修改的护理等级对象") NursingLevel nursingLevel)
     {
         return toAjax(nursingLevelService.updateNursingLevel(nursingLevel));
     }
@@ -91,12 +106,21 @@ public class NursingLevelController extends BaseController
     /**
      * 删除护理等级
      */
+    @ApiOperation("删除护理等级")
     @PreAuthorize("@ss.hasPermi('nursing:level:remove')")
     @Log(title = "护理等级", businessType = BusinessType.DELETE)
-    @DeleteMapping("/{ids}")
-    @ApiOperation("删除护理等级")
-    public AjaxResult remove(@ApiParam(value = "护理等级ID数组", required = true) @PathVariable Long[] ids)
+	@DeleteMapping("/{ids}")
+    public AjaxResult remove(@PathVariable @ApiParam("要删除的护理等级ID") Long[] ids)
     {
         return toAjax(nursingLevelService.deleteNursingLevelByIds(ids));
+    }
+
+    @ApiOperation("获取启用的护理等级列表")
+    @GetMapping("/all")
+    public R<List<NursingLevel>> getAllNursingLevel()
+    {
+    	NursingLevel nursingLevel = new NursingLevel();
+    	nursingLevel.setStatus(1);
+    	return R.ok(nursingLevelService.selectNursingLevelList(nursingLevel));
     }
 }

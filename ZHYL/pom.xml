@@ -38,6 +38,7 @@
         <lombok.version>1.18.22</lombok.version>
         <mybatis-plus-spring-boot.version>3.5.2</mybatis-plus-spring-boot.version>
         <aliyun.sdk.oss>3.17.4</aliyun.sdk.oss>
+        <hutool-all.version>5.8.10</hutool-all.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -221,14 +222,21 @@
                 <version>${zhyl.version}</version>
             </dependency>
 
-            <!-- 业务模块-->
+            <!--护理平台模块-->
             <dependency>
                 <groupId>com.zhyl</groupId>
                 <artifactId>zhyl-nursing-platform</artifactId>
                 <version>${zhyl.version}</version>
             </dependency>
 
-            <!-- lombok-->
+            <!--OSS模块-->
+            <dependency>
+                <groupId>com.zhyl</groupId>
+                <artifactId>zhyl-oss</artifactId>
+                <version>${zhyl.version}</version>
+            </dependency>
+
+            <!--Lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -247,10 +255,18 @@
                 <version>${mybatis-plus-spring-boot.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun.sdk.oss}</version>
+            </dependency>
 
-
-
-
+            <!-- hutool工具包 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -263,7 +279,7 @@
         <module>zhyl-generator</module>
         <module>zhyl-common</module>
         <module>zhyl-nursing-platform</module>
-
+        <module>zhyl-oss</module>
     </modules>
     <packaging>pom</packaging>
 

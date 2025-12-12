@@ -53,8 +53,7 @@ public class GenUtils
         }
         else if (arraysContains(GenConstants.COLUMNTYPE_TIME, dataType))
         {
-            // 将日期时间类型改为LocalDateTime
-            column.setJavaType(GenConstants.TYPE_LOCAL_DATE_TIME);
+            column.setJavaType(GenConstants.TYPE_LOCAL_DATE_TYPE);
             column.setHtmlType(GenConstants.HTML_DATETIME);
         }
         else if (arraysContains(GenConstants.COLUMNTYPE_NUMBER, dataType))

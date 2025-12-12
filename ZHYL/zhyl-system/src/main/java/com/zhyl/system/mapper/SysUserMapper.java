@@ -3,6 +3,7 @@ package com.zhyl.system.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import com.zhyl.common.core.domain.entity.SysUser;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 用户表 数据层
@@ -124,4 +125,7 @@ public interface SysUserMapper
      * @return 结果
      */
     public SysUser checkEmailUnique(String email);
+
+    @Select("select * from sys_user where dept_id = #{deptId}")
+    List<SysUser> getUserListByDept(Long deptId);
 }

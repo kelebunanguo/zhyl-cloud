@@ -97,3 +97,48 @@
   font-size: 14px;
   border-radius: 4px;
 }
+.warBtn,.undefinedBtn,.forbidBtn{
+  display: inline-block;
+  width: 68px;
+  height: 18px;
+  line-height: 16px;
+  border-radius: 9px;
+  padding: 1px 6px;
+  margin-left: 10px;
+  font-size: var(--font-size-11);
+  color: var(--color-link);
+  background: #E5F4F2;
+  text-align: center;
+  cursor: default;
+  &:hover,
+  &:active {
+    background: #E5F4F2;
+  }
+}
+.warBtn {
+  background: #FFEDE1;
+  color: #FF6800;
+  display: inline-block;
+  &:hover,
+  &:active {
+    background: #FFCFAE;
+  }
+}
+.undefinedBtn {
+  background: #ededed;
+  color: var(--color-bk5);
+  display: inline-block;
+  &:hover,
+  &:active {
+    background: #ededed;
+  }
+}
+.forbidBtn{
+  background: var(--color-error);
+  color: var(--color-white);
+  display: inline-block;
+  &:hover,
+  &:active {
+    background: #ededed;
+  }
+}

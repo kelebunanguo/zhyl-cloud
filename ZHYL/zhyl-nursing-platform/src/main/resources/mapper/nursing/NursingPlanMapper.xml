@@ -23,22 +23,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="selectNursingPlanList" parameterType="NursingPlan" resultMap="NursingPlanResult">
         <include refid="selectNursingPlanVo"/>
         <where>  
+            <if test="sortNo != null "> and sort_no = #{sortNo}</if>
             <if test="planName != null  and planName != ''"> and plan_name like concat('%', #{planName}, '%')</if>
             <if test="status != null "> and status = #{status}</if>
         </where>
     </select>
     
-    <select id="selectNursingPlanById" parameterType="Integer" resultMap="NursingPlanResult">
+    <select id="selectNursingPlanById" parameterType="Long" resultMap="NursingPlanResult">
         <include refid="selectNursingPlanVo"/>
         where id = #{id}
     </select>
-
 
     <insert id="insertNursingPlan" parameterType="NursingPlan" useGeneratedKeys="true" keyProperty="id">
         insert into nursing_plan
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="sortNo != null">sort_no,</if>
-            <if test="planName != null">plan_name,</if>
+            <if test="planName != null and planName != ''">plan_name,</if>
             <if test="status != null">status,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateTime != null">update_time,</if>
@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="sortNo != null">#{sortNo},</if>
-            <if test="planName != null">#{planName},</if>
+            <if test="planName != null and planName != ''">#{planName},</if>
             <if test="status != null">#{status},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateTime != null">#{updateTime},</if>
@@ -58,13 +58,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-
-
     <update id="updateNursingPlan" parameterType="NursingPlan">
         update nursing_plan
         <trim prefix="SET" suffixOverrides=",">
             <if test="sortNo != null">sort_no = #{sortNo},</if>
-            <if test="planName != null">plan_name = #{planName},</if>
+            <if test="planName != null and planName != ''">plan_name = #{planName},</if>
             <if test="status != null">status = #{status},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
@@ -75,7 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteNursingPlanById" parameterType="Integer">
+    <delete id="deleteNursingPlanById" parameterType="Long">
         delete from nursing_plan where id = #{id}
     </delete>
 

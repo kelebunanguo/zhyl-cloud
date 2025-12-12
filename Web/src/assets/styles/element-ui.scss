@@ -94,3 +94,13 @@
 .el-dropdown .el-dropdown-link{
   color: var(--el-color-primary) !important;
 }
+.el-table .el-table__cell{
+  .tableCon{
+    padding: 10px 20px 10px 60px;
+    .item{
+      span{
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -1,22 +1,15 @@
 package com.zhyl.nursing.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zhyl.nursing.domain.NursingProjectPlan;
-import com.zhyl.nursing.vo.NursingLevelVo;
-import com.zhyl.nursing.vo.NursingPlanVo;
-import com.zhyl.nursing.vo.NursingProjectPlanVo;
-import com.zhyl.nursing.vo.NursingProjectVo;
-import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 import com.zhyl.nursing.domain.NursingPlan;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 护理计划Mapper接口
  * 
- * @author ruoyi
- * @date 2025-12-05
+ * @author alexis
+ * @date 2025-06-02
  */
 @Mapper
 public interface NursingPlanMapper extends BaseMapper<NursingPlan>
@@ -27,7 +20,7 @@ public interface NursingPlanMapper extends BaseMapper<NursingPlan>
      * @param id 护理计划主键
      * @return 护理计划
      */
-    public NursingPlan selectNursingPlanById(Integer id);
+    public NursingPlan selectNursingPlanById(Long id);
 
     /**
      * 查询护理计划列表
@@ -59,7 +52,7 @@ public interface NursingPlanMapper extends BaseMapper<NursingPlan>
      * @param id 护理计划主键
      * @return 结果
      */
-    public int deleteNursingPlanById(Integer id);
+    public int deleteNursingPlanById(Long id);
 
     /**
      * 批量删除护理计划
@@ -67,13 +60,5 @@ public interface NursingPlanMapper extends BaseMapper<NursingPlan>
      * @param ids 需要删除的数据主键集合
      * @return 结果
      */
-    public int deleteNursingPlanByIds(Integer[] ids);
-
-
-    /**
-     * 查询所有护理计划
-     * @return
-     */
-    @Select("select id value,plan_name label from nursing_plan where status = 1 ")
-    List<NursingPlanVo> selectAll();
+    public int deleteNursingPlanByIds(Long[] ids);
 }

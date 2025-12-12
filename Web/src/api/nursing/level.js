@@ -42,3 +42,11 @@ export function delLevel(id) {
     method: 'delete'
   })
 }
+
+// 获取所有护理等级
+export function getAllLevels() {
+  return request({
+    url: '/nursing/level/all',
+    method: 'get'
+  })
+}

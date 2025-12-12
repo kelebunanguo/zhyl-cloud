@@ -25,6 +25,11 @@
     <select id="selectNursingProjectPlanList" parameterType="NursingProjectPlan" resultMap="NursingProjectPlanResult">
         <include refid="selectNursingProjectPlanVo"/>
         <where>
+            <if test="planId != null "> and plan_id = #{planId}</if>
+            <if test="projectId != null "> and project_id = #{projectId}</if>
+            <if test="executeTime != null  and executeTime != ''"> and execute_time = #{executeTime}</if>
+            <if test="executeCycle != null "> and execute_cycle = #{executeCycle}</if>
+            <if test="executeFrequency != null "> and execute_frequency = #{executeFrequency}</if>
         </where>
     </select>
 
@@ -32,11 +37,17 @@
         <include refid="selectNursingProjectPlanVo"/>
         where id = #{id}
     </select>
-
-    <select id="selectByPlanId" resultType="com.zhyl.nursing.vo.NursingProjectPlanVo">
-        select id, plan_id, project_id, execute_time, execute_cycle, execute_frequency
+    <select id="selectByNursingPlanId" resultType="com.zhyl.nursing.vo.NursingProjectPlanVo">
+        select id,
+               plan_id,
+               project_id,
+               execute_time,
+               execute_cycle,
+               execute_frequency,
+               create_time,
+               create_by
         from nursing_project_plan
-        where plan_id = #{id}
+        where plan_id = #{planId}
     </select>
 
     <insert id="insertNursingProjectPlan" parameterType="NursingProjectPlan" useGeneratedKeys="true" keyProperty="id">
@@ -44,7 +55,7 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="planId != null">plan_id,</if>
             <if test="projectId != null">project_id,</if>
-            <if test="executeTime != null">execute_time,</if>
+            <if test="executeTime != null and executeTime != ''">execute_time,</if>
             <if test="executeCycle != null">execute_cycle,</if>
             <if test="executeFrequency != null">execute_frequency,</if>
             <if test="createTime != null">create_time,</if>
@@ -56,7 +67,7 @@
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="planId != null">#{planId},</if>
             <if test="projectId != null">#{projectId},</if>
-            <if test="executeTime != null">#{executeTime},</if>
+            <if test="executeTime != null and executeTime != ''">#{executeTime},</if>
             <if test="executeCycle != null">#{executeCycle},</if>
             <if test="executeFrequency != null">#{executeFrequency},</if>
             <if test="createTime != null">#{createTime},</if>
@@ -66,14 +77,11 @@
             <if test="remark != null">#{remark},</if>
         </trim>
     </insert>
-
     <insert id="batchInsert">
-        insert into nursing_project_plan (plan_id, project_id, execute_time, execute_cycle, execute_frequency,
-        create_time)
+        insert into nursing_project_plan (plan_id, project_id, execute_time, execute_cycle, execute_frequency, create_time, remark)
         values
-        <foreach collection="list" item="item" separator=",">
-            (#{planId}, #{item.projectId}, #{item.executeTime}, #{item.executeCycle}, #{item.executeFrequency},
-            sysdate())
+        <foreach item="item" collection="list" separator=",">
+            (#{planId}, #{item.projectId}, #{item.executeTime}, #{item.executeCycle}, #{item.executeFrequency}, sysdate(), #{item.remark})
         </foreach>
     </insert>
 
@@ -82,7 +90,7 @@
         <trim prefix="SET" suffixOverrides=",">
             <if test="planId != null">plan_id = #{planId},</if>
             <if test="projectId != null">project_id = #{projectId},</if>
-            <if test="executeTime != null">execute_time = #{executeTime},</if>
+            <if test="executeTime != null and executeTime != ''">execute_time = #{executeTime},</if>
             <if test="executeCycle != null">execute_cycle = #{executeCycle},</if>
             <if test="executeFrequency != null">execute_frequency = #{executeFrequency},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
