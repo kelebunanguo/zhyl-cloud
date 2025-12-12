@@ -50,6 +50,13 @@
             <artifactId>zhyl-generator</artifactId>
         </dependency>
 
+
+        <!-- 护理业务模块-->
+        <dependency>
+            <groupId>com.zhyl</groupId>
+            <artifactId>zhyl-nursing-platform</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

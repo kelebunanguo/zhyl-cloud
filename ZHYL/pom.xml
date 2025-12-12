@@ -10,7 +10,7 @@
 
     <name>zhyl</name>
     <url>http://www.ruoyi.vip</url>
-    <description>智慧养老云系统</description>
+    <description>智慧养老云</description>
     
     <properties>
         <zhyl.version>3.8.9</zhyl.version>
@@ -35,6 +35,9 @@
         <logback.version>1.2.13</logback.version>
         <spring-security.version>5.7.12</spring-security.version>
         <spring-framework.version>5.3.39</spring-framework.version>
+        <lombok.version>1.18.22</lombok.version>
+        <mybatis-plus-spring-boot.version>3.5.2</mybatis-plus-spring-boot.version>
+        <aliyun.sdk.oss>3.17.4</aliyun.sdk.oss>
     </properties>
 
     <!-- 依赖声明 -->
@@ -218,6 +221,37 @@
                 <version>${zhyl.version}</version>
             </dependency>
 
+            <!-- 业务模块-->
+            <dependency>
+                <groupId>com.zhyl</groupId>
+                <artifactId>zhyl-nursing-platform</artifactId>
+                <version>${zhyl.version}</version>
+            </dependency>
+
+            <!-- lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- MyBatis-Plus 增强CRUD -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus-spring-boot.version}</version>
+            </dependency>
+
+
+
+
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -228,6 +262,8 @@
         <module>zhyl-quartz</module>
         <module>zhyl-generator</module>
         <module>zhyl-common</module>
+        <module>zhyl-nursing-platform</module>
+
     </modules>
     <packaging>pom</packaging>
 

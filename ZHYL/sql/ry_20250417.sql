@@ -1,5 +1,5 @@
-create database if not exists zzyl;
-use zzyl;
+create database if not exists zhyl;
+use zhyl;
 -- ----------------------------
 -- 1、部门表
 -- ----------------------------
