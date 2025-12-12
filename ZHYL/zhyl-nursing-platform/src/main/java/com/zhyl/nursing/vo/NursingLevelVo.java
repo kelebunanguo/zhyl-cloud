@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * 护理等级对象 nursing_level
- *
+ * 
  * @author ruoyi
  * @date 2024-10-04
  */
@@ -26,38 +26,38 @@ public class NursingLevelVo {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键ID
-     */
+    * 主键ID
+    */
     @ApiModelProperty(value = "主键ID")
     private Long id;
 
     /**
-     * 等级名称
-     */
+    * 等级名称
+    */
     @ApiModelProperty(value = "等级名称")
     private String name;
 
     /**
-     * 护理计划ID
-     */
+    * 护理计划ID
+    */
     @ApiModelProperty(value = "护理计划ID")
     private Long planId;
 
     /**
-     * 护理费用
-     */
+    * 护理费用
+    */
     @ApiModelProperty(value = "护理费用")
     private BigDecimal fee;
 
     /**
-     * 状态（0：禁用，1：启用）
-     */
+    * 状态（0：禁用，1：启用）
+    */
     @ApiModelProperty(value = "状态")
     private Integer status;
 
     /**
-     * 等级说明
-     */
+    * 等级说明
+    */
     @ApiModelProperty(value = "等级说明")
     private String description;
 

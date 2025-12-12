@@ -1,18 +1,18 @@
 package com.zhyl.nursing.mapper;
 
+import java.util.List;
+import com.zhyl.nursing.domain.NursingProjectPlan;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zhyl.nursing.vo.NursingProjectPlanVo;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
-import java.util.List;
-import com.zhyl.nursing.domain.NursingProjectPlan;
 import org.apache.ibatis.annotations.Param;
 
 /**
  * 护理计划和项目关联Mapper接口
  * 
- * @author ruoyi
- * @date 2025-12-05
+ * @author alexis
+ * @date 2025-06-08
  */
 @Mapper
 public interface NursingProjectPlanMapper extends BaseMapper<NursingProjectPlan>
@@ -65,25 +65,15 @@ public interface NursingProjectPlanMapper extends BaseMapper<NursingProjectPlan>
      */
     public int deleteNursingProjectPlanByIds(Long[] ids);
 
-    /**
-     * 批量保存护理项目计划关系
-     * @param projectPlans
-     * @param planId
-     * @return
-     */
     int batchInsert(@Param("list") List<NursingProjectPlan> projectPlans, @Param("planId") Long planId);
 
     /**
-     * 根据计划id查询项目计划
-     * @param id
+     * 根据护理计划ID查询关联的护理项目列表
+     * @param planId    护理计划id
      * @return
      */
-    List<NursingProjectPlanVo> selectByPlanId(Long id);
+    List<NursingProjectPlanVo> selectByNursingPlanId(@Param("planId") Long planId);
 
-    /**
-     * 根据计划id删除项目计划
-     * @param planId
-     */
     @Delete("delete from nursing_project_plan where plan_id = #{planId}")
-    void deleteByPlanId(Long planId);
+    void deleteByNursingPlanId(@Param("planId") Long planId);
 }

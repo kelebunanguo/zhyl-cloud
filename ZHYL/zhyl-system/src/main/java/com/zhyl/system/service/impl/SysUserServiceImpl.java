@@ -547,4 +547,16 @@ public class SysUserServiceImpl implements ISysUserService
         }
         return successMsg.toString();
     }
+
+    /**
+     * 根据部门编号查询员工列表
+     *
+     * @param deptId
+     * @return
+     */
+    @Override
+    public List<SysUser> getUserListByDept(Long deptId) {
+        List<SysUser> users = userMapper.getUserListByDept(deptId);
+        return users;
+    }
 }

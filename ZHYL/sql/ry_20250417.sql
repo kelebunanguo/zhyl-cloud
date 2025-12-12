@@ -1,5 +1,6 @@
 create database if not exists zhyl;
 use zhyl;
+
 -- ----------------------------
 -- 1、部门表
 -- ----------------------------

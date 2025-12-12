@@ -1,12 +1,14 @@
 // base color
 $blue: #324157;
-$light-blue: #333c46;
+$light-blue: #3A71A8;
 $red: #C03639;
 $pink: #E65D6E;
 $green: #30B08F;
 $tiffany: #4AB7BD;
 $yellow: #FEC171;
 $panGreen: #30B08F;
+$--color-link: #008d71;
+$--color-main: #00b8a0;
 
 // 默认主题变量
 $menuText: #bfcbd9;
@@ -28,15 +30,32 @@ $sideBarWidth: 200px;
 $base-menu-color: #bfcbd9;
 $base-menu-color-active: #f4f4f5;
 $base-menu-background: #304156;
+$base-logo-title-color: #ffffff;
+
+$base-menu-light-color: rgba(0, 0, 0, 0.7);
+$base-menu-light-background: #ffffff;
+$base-logo-light-title-color: #001529;
+
 $base-sub-menu-background: #1f2d3d;
 $base-sub-menu-hover: #001528;
+$base-color-bk4: #999999;
+$base--color-bk2: #262626;
+$--color-bk3: #595959;
+$--color-black: #000;
+$--color-border: #e8e8e8;
+$--color-aux5: #ebf6f5;
+$--color-bk6: #bfbfbf;
+$--color-bk14: #f2f9f7;
+$base-font-size-12: 12px;
+$base-font-size-14: 14px;
+$base-font-size-16: 16px;
 
-// 组件变量
 $--color-primary: #409EFF;
 $--color-success: #67C23A;
 $--color-warning: #E6A23C;
 $--color-danger: #F56C6C;
 $--color-info: #909399;
+$base-sidebar-width: 200px;
 
 :export {
   menuText: $menuText;
@@ -216,6 +235,4 @@ html.dark {
   .popup-result .title {
     background: var(--cron-border);
   }
-
 }
-
