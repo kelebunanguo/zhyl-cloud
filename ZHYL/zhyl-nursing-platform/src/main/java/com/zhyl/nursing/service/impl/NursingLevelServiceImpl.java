@@ -65,9 +65,10 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
     @Override
     public int insertNursingLevel(NursingLevel nursingLevel)
     {
+
+        boolean flag = save(nursingLevel);
         //删除缓存数据
         deleteCache();
-        boolean flag = save(nursingLevel);
         return flag ? 1 : 0;
     }
 
@@ -87,9 +88,10 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
     @Override
     public int updateNursingLevel(NursingLevel nursingLevel)
     {
+
+        boolean flag = updateById(nursingLevel);
         //删除缓存数据
         deleteCache();
-        boolean flag = updateById(nursingLevel);
         return flag ? 1 : 0;
     }
 
@@ -102,9 +104,10 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
     @Override
     public int deleteNursingLevelByIds(Long[] ids)
     {
+
+        boolean flag = removeByIds(Arrays.asList(ids));
         //删除缓存数据
         deleteCache();
-        boolean flag = removeByIds(Arrays.asList(ids));
         return flag ? 1 : 0;
     }
 
@@ -117,9 +120,10 @@ public class NursingLevelServiceImpl extends ServiceImpl<NursingLevelMapper, Nur
     @Override
     public int deleteNursingLevelById(Long id)
     {
+
+        boolean flag = removeById(id);
         //删除缓存数据
         deleteCache();
-        boolean flag = removeById(id);
         return flag ? 1 : 0;
     }
 
