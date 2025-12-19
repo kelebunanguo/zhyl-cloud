@@ -46,4 +46,9 @@ public class CacheConstants
      * 护理等级列表缓存key
      */
     public static final Object NURSING_LEVEL_VO_LIST_KEY = "nursing:level:vo:list";
+
+    /**
+     * 护理计划列表缓存key
+     */
+    public static final Object NURSING_PLAN_LIST_KEY = "nursing:plan:list";
 }
