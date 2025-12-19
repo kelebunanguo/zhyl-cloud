@@ -51,4 +51,9 @@ public class CacheConstants
      * 护理计划列表缓存key
      */
     public static final Object NURSING_PLAN_LIST_KEY = "nursing:plan:list";
+
+    /**
+     * 护理项目列表缓存key
+     */
+    public static final Object NURSING_PROJECT_VO_LIST_KEY = "nursing:Project:vo:list";
 }
