@@ -140,5 +140,13 @@ aliyun:
     access-key-secret: ${OSS_ACCESS_KEY_SECRET}
     bucketName: zznursing-zyl
 
+# 百度千帆大模型配置
+baidu:
+  qianfan:
+    apiKey: bce-v3/ALTAK-e0qYh6pKedLZBYpLZNBhK/bb45811e90e32ecd84eb171bc24117dce22c6cbc
+    baseUrl: https://qianfan.baidubce.com/v2/
+    model: ernie-5.0-thinking-preview
+
+
 dept:
   nursingId: 201

@@ -74,6 +74,7 @@ public class HealthAssessmentController extends BaseController
             // PDF文件内容读取为字符串
             String content = PDFUtil.pdfToString(file.getInputStream());
             // 临时存储到redis中
+            log.info("上传PDF，身份证号: [{}]", idCardNo);
             redisTemplate.opsForHash().put("healthReport", idCardNo, content);
 
             return ajax;
@@ -129,7 +130,8 @@ public class HealthAssessmentController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody @ApiParam("新增的健康评估对象") HealthAssessment healthAssessment)
     {
-        return toAjax(healthAssessmentService.insertHealthAssessment(healthAssessment));
+        Long id = healthAssessmentService.insertHealthAssessment(healthAssessment);
+        return success(id);
     }
 
     /**
